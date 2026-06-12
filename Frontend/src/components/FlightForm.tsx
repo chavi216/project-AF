@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { api } from '../api/api';
-import { type FlightData }  from '../types/flight.ts';
+import { type FlightData } from '../types/flight.ts';
 
 export default function FlightForm() {
     const [formData, setFormData] = useState<FlightData>({
