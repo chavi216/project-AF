@@ -1,0 +1,76 @@
+.hsi-wrap {
+    position: relative;
+    width: 220px;
+    height: 220px;
+}
+
+.hsi-dial {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 2px solid #475569;
+    background: #f8fafc;
+    transition: transform 0.35s ease;
+}
+
+.hsi-heading {
+    position: absolute;
+    color: #111827;
+    font-family: ui-monospace, Consolas, monospace;
+    font-weight: 800;
+}
+
+.hsi-heading.north {
+    top: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hsi-heading.east {
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+}
+
+.hsi-heading.south {
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.hsi-heading.west {
+    top: 50%;
+    left: 12px;
+    transform: translateY(-50%);
+}
+
+.tick {
+    position: absolute;
+    left: 50%;
+    top: 8px;
+    width: 2px;
+    height: 12px;
+    background: #64748b;
+    transform-origin: 1px 102px;
+}
+
+.hsi-pointer {
+    position: absolute;
+    left: 50%;
+    top: 45px;
+    width: 4px;
+    height: 78px;
+    border-radius: 999px;
+    background: #0f766e;
+    transform: translateX(-50%);
+}
+
+.hsi-pointer::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    border: 10px solid transparent;
+    border-bottom-color: #0f766e;
+    transform: translateX(-50%);
+}

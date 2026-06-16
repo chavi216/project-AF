@@ -1,48 +1,23 @@
-/* src/Dashboard.css */
-.visual-dashboard {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px;
-}
-
 .instrument-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    width: 200px;
-    text-align: center;
+    min-width: 0;
+    height: 340px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #1f2937;
+    background: #ffffff;
+    box-shadow: 0 12px 36px rgba(15, 23, 42, 0.08);
 }
 
-/* המצפן (HSI) צריך להיות עיגול */
-.hsi-dial {
-    width: 150px;
-    height: 150px;
-    border: 2px solid #333;
-    border-radius: 50%;
-    margin: 10px auto;
-    position: relative;
-    overflow: hidden;
-}
-
-.compass-rose {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-}
-
-/* מד הגובה (ALT) */
-.altitude-scale {
-    height: 200px;
-    width: 40px;
-    border-left: 2px solid #333;
-    position: relative;
-    margin: 0 auto;
-}
-
-.altitude-marker {
-    position: absolute;
-    left: -5px;
-    width: 20px;
-    height: 5px;
-    background: red;
+.instrument-title {
+    width: calc(100% - 32px);
+    min-height: 58px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: ui-monospace, Consolas, monospace;
+    font-weight: 800;
+    color: #334155;
 }

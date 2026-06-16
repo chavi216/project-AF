@@ -1,0 +1,57 @@
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.mode-switch {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(92px, 1fr));
+  gap: 6px;
+  padding: 6px;
+  border: 1px solid #c7cfda;
+  border-radius: 8px;
+  background: #eef2f7;
+}
+
+.mode-switch button,
+.add-button {
+  border: 0;
+  font: inherit;
+  cursor: pointer;
+}
+
+.mode-switch button {
+  min-height: 40px;
+  border-radius: 6px;
+  color: #384152;
+  background: transparent;
+  font-weight: 700;
+}
+
+.mode-switch button.active {
+  color: #ffffff;
+  background: #334155;
+}
+
+.add-button {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #ffffff;
+  background: #0f766e;
+  font-size: 30px;
+  line-height: 1;
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    justify-content: space-between;
+  }
+
+  .mode-switch {
+    flex: 1;
+  }
+}

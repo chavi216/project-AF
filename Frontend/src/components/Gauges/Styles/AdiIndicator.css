@@ -1,0 +1,52 @@
+.adi-dial {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    border-radius: 50%;
+    border: 2px solid rgba(37, 99, 235, 0.28);
+    background: #111827;
+    box-shadow:
+        inset 0 0 0 10px rgba(255, 255, 255, 0.08),
+        inset 0 12px 28px rgba(255, 255, 255, 0.2),
+        inset 0 -18px 34px rgba(0, 0, 0, 0.18);
+    overflow: hidden;
+}
+
+.adi-horizon {
+    position: absolute;
+    inset: -70px 0;
+    transition: transform 0.35s ease;
+}
+
+.adi-sky,
+.adi-ground {
+    height: 50%;
+}
+
+.adi-sky {
+    background: radial-gradient(circle at 50% 18%, #63b7ef 0%, #3292d2 58%, #1f6fa9 100%);
+}
+
+.adi-ground {
+    background: radial-gradient(circle at 50% 86%, #6fcf82 0%, #43ad62 56%, #2f8748 100%);
+}
+
+.adi-line {
+    position: absolute;
+    top: 50%;
+    left: 42px;
+    right: 42px;
+    height: 4px;
+    border-radius: 999px;
+    background: #f8fafc;
+    box-shadow: 0 1px 5px rgba(15, 23, 42, 0.35);
+}
+
+.adi-dial::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    box-shadow: inset 0 0 24px rgba(15, 23, 42, 0.36);
+    pointer-events: none;
+}

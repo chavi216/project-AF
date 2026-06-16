@@ -1,32 +1,17 @@
-import { useEffect, useState } from 'react';
-import { api } from '../api/api';
-import { type FlightData } from '../types/flight';
+import { useFlightData } from '../hooks/useFlightData';
+import { type DisplayMode } from '../types/flight';
 import AltitudeIndicator from './Gauges/AltitudeIndicator';
 import HsiIndicator from './Gauges/HsiIndicator';
 import AdiIndicator from './Gauges/AdiIndicator';
-import './Styles/Gauges.css';
+import "./Styles/FlightDashboard.css";
+
 interface FlightDashboardProps {
-    mode: 'text' | 'visual';
+    mode: DisplayMode;
+    refreshKey: number;
 }
 
-export default function FlightDashboard({ mode }: FlightDashboardProps) {
-    const [flight, setFlight] = useState<FlightData | null>(null);
-
-    const fetchLastFlight = async () => {
-        try {
-            const res = await api.get('/flight-data');
-            const data = Array.isArray(res.data) ? res.data[res.data.length - 1] : res.data;
-            setFlight(data);
-        } catch (error) {
-            console.error("שגיאה במשיכת נתונים:", error);
-        }
-    };
-
-    useEffect(() => {
-        fetchLastFlight();
-        const interval = setInterval(fetchLastFlight, 3000); // רענון אוטומטי כל 3 שניות
-        return () => clearInterval(interval);
-    }, []);
+export default function FlightDashboard({ mode, refreshKey }: FlightDashboardProps) {
+    const { flight } = useFlightData(refreshKey);
 
     if (!flight) return <div className="loading">Waiting for data...</div>;
 
@@ -34,9 +19,18 @@ export default function FlightDashboard({ mode }: FlightDashboardProps) {
         <div className="dashboard-wrapper">
             {mode === 'text' ? (
                 <section className="text-dashboard">
-                    <p>Altitude: {flight.altitude} ft</p>
-                    <p>HSI: {flight.hsi}°</p>
-                    <p>ADI: {flight.adi}°</p>
+                    <article>
+                        <span>Altitude</span>
+                        <strong>{flight.altitude} ft</strong>
+                    </article>
+                    <article>
+                        <span>HSI</span>
+                        <strong>{flight.hsi} deg</strong>
+                    </article>
+                    <article>
+                        <span>ADI</span>
+                        <strong>{flight.adi}</strong>
+                    </article>
                 </section>
             ) : (
                 <section className="visual-dashboard">

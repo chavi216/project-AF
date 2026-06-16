@@ -1,13 +1,23 @@
+import './Styles/HsiIndicator.css';
+import '../Styles/Gauges.css';
+
 export default function HsiIndicator({ value }: { value: number }) {
+    const normalizedValue = ((value % 360) + 360) % 360;
+
     return (
         <article className="instrument-card">
-            <div className="instrument-title"><span>HSI</span><strong>{value} deg</strong></div>
-            <div className="hsi-dial">
-                <div className="compass-rose" style={{ transform: `rotate(${-value}deg)` }}>
-                    <b className="north">N</b><b className="east">E</b><b className="south">S</b><b className="west">W</b>
-                    {Array.from({ length: 12 }, (_, index) => <i key={index} style={{ transform: `rotate(${index * 30}deg)` }} />)}
+            <div className="instrument-title"><span>HSI</span><strong>{normalizedValue} deg</strong></div>
+            <div className="hsi-wrap">
+                <div className="hsi-dial" style={{ transform: `rotate(${-normalizedValue}deg)` }}>
+                    <span className="hsi-heading north">0</span>
+                    <span className="hsi-heading east">90</span>
+                    <span className="hsi-heading south">180</span>
+                    <span className="hsi-heading west">270</span>
+                    {Array.from({ length: 12 }).map((_, i) => (
+                        <span key={i} className="tick" style={{ transform: `rotate(${i * 30}deg)` }} />
+                    ))}
                 </div>
-                <div className="fixed-pointer" /><div className="hub" />
+                <div className="hsi-pointer" aria-hidden="true" />
             </div>
         </article>
     );

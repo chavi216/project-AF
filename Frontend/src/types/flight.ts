@@ -3,3 +3,5 @@ export interface FlightData {
     hsi: number;
     adi: number;
 }
+
+export type DisplayMode = 'text' | 'visual';
