@@ -61,7 +61,7 @@
     width: 4px;
     height: 78px;
     border-radius: 999px;
-    background: #0f766e;
+    background: #f97316;
     transform: translateX(-50%);
 }
 
@@ -71,6 +71,6 @@
     top: -12px;
     left: 50%;
     border: 10px solid transparent;
-    border-bottom-color: #0f766e;
+    border-bottom-color: #f97316;
     transform: translateX(-50%);
 }
